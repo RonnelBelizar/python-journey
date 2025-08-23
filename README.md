@@ -1,7 +1,7 @@
 # 🐍 My Python Journey
 
 Hi! I’m Ronnel, an Electronics Engineer with 8+ years in healthcare technology.
-I’m transitioning into Data Engineering, focusing on **healthcare data** (e.g., patient test results, instrumentation logs).
+I’m transitioning into Data Engineering, focusing my learning on **healthcare data** (e.g., patient test results, instrumentation logs).
 
 This repository documents my Python learning journey. It contains:
 - 📒 **notes/** — Daily or weekly logs of what I study
