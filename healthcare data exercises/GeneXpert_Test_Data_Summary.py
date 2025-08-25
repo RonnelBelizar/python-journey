@@ -1,0 +1,75 @@
+# 🧩 Problem: GeneXpert Test Data Summary
+
+# Your company processes lab data from an HIV clinic. You are given a list of test records.
+# Each record is stored as a dictionary with the following information:
+
+# "patient_code" → anonymous patient ID (string)
+# "test_type" → which test was done ("HIV", "CT_NG", "TB")
+# "result" → "Positive", "Negative", "Error", "Invalid"
+# "error_type" → only appears if "result" is "Error"
+
+# ✅ Your Tasks:
+
+# Count total number of tests
+# Count how many results are "Positive", "Negative", "Error", "Invalid"
+# Count each error type (e.g., "Probe Error", "Temperature Error"
+# Count how many tests were run for each test type (HIV, CT_NG, TB)
+
+tests = [
+    {"patient_code": "P001", "test_type": "HIV", "result": "Positive"},
+    {"patient_code": "P002", "test_type": "CT_NG", "result": "Negative"},
+    {"patient_code": "P003", "test_type": "HIV",
+        "result": "Error", "error_type": "Probe Error"},
+    {"patient_code": "P004", "test_type": "TB", "result": "Invalid"},
+    {"patient_code": "P005", "test_type": "HIV",
+        "result": "Error", "error_type": "Temperature Error"},
+    {"patient_code": "P006", "test_type": "CT_NG", "result": "Positive"},
+]
+
+# counters
+
+num_positive = 0
+num_negative = 0
+num_error = 0
+num_invalid = 0
+
+num_probe = 0
+num_temp = 0
+
+num_hiv = 0
+num_ctng = 0
+num_tb = 0
+
+for record in tests:
+
+    if record["result"] == "Positive":
+        num_positive += 1
+    elif record["result"] == "Negative":
+        num_negative += 1
+    elif record["result"] == "Invalid":
+        num_invalid += 1
+    elif record["result"] == "Error":
+        num_error += 1
+
+    if record.get("error_type") == "Probe Error":
+        num_probe += 1
+    elif record.get("error_type") == "Temperature Error":
+        num_temp += 1
+
+    if record["test_type"] == "HIV":
+        num_hiv += 1
+    elif record["test_type"] == "CT_NG":
+        num_ctng += 1
+    elif record["test_type"] == "TB":
+        num_tb += 1
+
+print("Total number of tests: ", len(tests))
+print("Positive: ", num_positive, "|",
+      "Negative: ", num_negative, "|",
+      "Invalid: ", num_invalid, "|",
+      "Error: ", num_error)
+print("Probe Error: ", num_probe, "|",
+      "Temperature Error: ", num_temp)
+print("HIV: ", num_hiv, "|",
+      "CT_NG: ", num_ctng, "|",
+      "TB: ", num_tb)
